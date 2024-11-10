@@ -38,7 +38,7 @@ public class InventoryManager : MonoBehaviour
             inventoryItems.Add(InventoryItem.CreateRandom());
     }
 
-    public InventoryItem LinearSearchByName(string name)
+    private InventoryItem LinearSearchByName(string name)
     {
         for (var i = 0; i < inventoryItems.Count; i++)
         {
@@ -54,7 +54,7 @@ public class InventoryManager : MonoBehaviour
         return null;
     }
 
-    public InventoryItem BinarySearchByID(int id)
+    private InventoryItem BinarySearchByID(int id)
     {
         // Create a sorted array of the inventory items sorted by ID
         var sortedItems = inventoryItems.ToArray();
@@ -97,7 +97,7 @@ public class InventoryManager : MonoBehaviour
         return BinarySearchByID(items, id, leftInclusive, middle - 1);
     }
 
-    public InventoryItem[] QuickSortByValue(InventoryItem[] array, int low, int high)
+    private InventoryItem[] QuickSortByValue(InventoryItem[] array, int low, int high)
     {
         // If the array is empty or contains only one item, return the array
         if (low >= high)
@@ -204,6 +204,8 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
+    #region Button Functions
+
     public void SearchForID()
     {
         BinarySearchByID(idToSearch);
@@ -223,4 +225,6 @@ public class InventoryManager : MonoBehaviour
         // Create new UI elements
         CreateUIElements();
     }
+
+    #endregion
 }
