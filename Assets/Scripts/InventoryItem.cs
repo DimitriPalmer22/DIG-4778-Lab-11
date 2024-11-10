@@ -28,9 +28,15 @@ public class InventoryItem
         _idCounter++;
     }
 
+
+    public override string ToString()
+    {
+        return $"[({id.ToString().PadLeft(8, '0')}) {name}: ${value:0.00}]";
+    }
+
     public static InventoryItem CreateRandom()
     {
-        var randomNumber = UnityEngine.Random.Range(0, 100_000_000);
+        var randomNumber = UnityEngine.Random.Range(0, 32);
         var randomName = $"Item {randomNumber}";
 
         var randomValue = UnityEngine.Random.Range(0.00f, 1000.00f);
